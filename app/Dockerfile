@@ -8,18 +8,14 @@ RUN npm install
 
 RUN npm run build
 
-# Building python3 flask environment and copy Vue.js from vue-build
-FROM python:3.10-slim
-
-ENV PYTHONUNBUFFERED True
+# Building nginx environment and copy Vue.js from vue-build
+FROM nginx:alpine
 
 ENV APP_HOME /app
-COPY flask $APP_HOME
+COPY ./nginx /etc/nginx/conf.d/
 WORKDIR $APP_HOME
-COPY --from=vue-build /app/dist ./html
+COPY --from=vue-build /app/dist /var/www
 
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Execute web server by gunicorn
-ENV PORT 8080
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
+# Execute web server by nginx
+WORKDIR /usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"]

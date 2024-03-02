@@ -1,8 +1,8 @@
-# k8s-flaks-vuejs
+# k8s-nginx-vuejs
 
 ## はじめに
 
-本リポジトリでは、Raspberry Pi 4Bで構成されたおうちKubernetesにVue.jsとFlaskを乗せてSPAをデプロイします。
+本リポジトリでは、Raspberry Pi 4Bで構成されたおうちKubernetesにVue.jsとNginxを乗せてSPAをデプロイします。
 
 ## 構成
 
