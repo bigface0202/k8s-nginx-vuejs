@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service-lb # Service(LoadBalancer) の名前
+  namespace: myapp-space
+  annotations:
+    metallb.universe.tf/address-pool: pool-ips # MetallbのIPプール名
+spec:
+  type: LoadBalancer
+  ports:
+    - name: myapp-service-lb
+      protocol: TCP
+      port: 8080 # ServiceのIPでlistenするポート
+      nodePort: 30080 # nodeのIPでlistenするポート（30000-32767）
+      targetPort: 8080 # 転送先(コンテナ)でlistenしているPort番号のポート
+  selector: # service のselctorは、matchLabels 扱いになる
+    app: myapp # 転送先の Pod のラベル
