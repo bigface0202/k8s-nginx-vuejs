@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  namespace: app
+  name: app-managed-cirt
+spec:
+  domains:
+    - 34.128.162.23.nip.io

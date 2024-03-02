@@ -3,7 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   outputDir: 'dist',
   assetsDir: 'static',
-  indexPath: 'templates/index.html',
+  indexPath: 'index.html',
   chainWebpack: config => {
     config.module
       .rule('vue')

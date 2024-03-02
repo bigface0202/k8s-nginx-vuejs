@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  namespace: app
+  labels:
+    name: app-ingress
+  annotations:
+    # 外部ロードバランサの作成
+    kubernetes.io/ingress.class: "gce"
+    # クライアントとHTTPロードバランサ間の全ての通信をHTTPSに強制
+    kubernetes.io/ingress.allow-http: "false"
+    # 事前に用意していた静的外部IPアドレスを設定する
+    kubernetes.io/ingress.global-static-ip-name: "app-lb"
+    # Googleマネージド証明書をIngressに適用する
+    networking.gke.io/managed-certificates: "app-managed-cirt"
+spec:
+  # defaultBackend:
+  #   service:
+  #     name: frontend
+  #     port: 
+  #       number: 3001
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: frontend
+            port: 
+              number: 3001

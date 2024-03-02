@@ -12,7 +12,7 @@ RUN npm run build
 FROM nginx:alpine
 
 ENV APP_HOME /app
-COPY ./nginx /etc/nginx/conf.d/
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 WORKDIR $APP_HOME
 COPY --from=vue-build /app/dist /var/www
 
