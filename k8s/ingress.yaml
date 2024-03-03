@@ -24,14 +24,14 @@ spec:
   - http:
       paths:
       - pathType: Prefix
-        path: /frontend
+        path: /
         backend:
           service:
             name: frontend
             port: 
               number: 3001
       - pathType: Prefix
-        path: /api
+        path: /api/v1/test
         backend:
           service:
             name: backend

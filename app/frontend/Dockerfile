@@ -14,7 +14,7 @@ FROM nginx:alpine
 ENV APP_HOME /app
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 WORKDIR $APP_HOME
-COPY --from=vue-build /app/dist /var/www/frontend
+COPY --from=vue-build /app/dist /var/www
 
 # Execute web server by nginx
 WORKDIR /usr/share/nginx/html

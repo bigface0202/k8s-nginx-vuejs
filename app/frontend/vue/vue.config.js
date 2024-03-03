@@ -11,10 +11,9 @@ module.exports = defineConfig({
       .loader('vue-loader')
       .tap(options => {
         options.compilerOptions = { 
-          whitespace: 'condense',
-          delimiters: ['[[', ']]']
-        };
-        return options;
-      });
+          whitespace: 'condense'
+        }
+        return options
+      })
   }
 })
