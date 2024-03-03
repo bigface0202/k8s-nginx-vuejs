@@ -11,3 +11,17 @@ spec:
     - protocol: TCP
       port: 3001 # ServiceのIPでlistenするポート
       targetPort: 80 # コンテナでlistenしているPort番号のポート
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend # Service(LoadBalancer) の名前
+  namespace: app
+spec:
+  type: NodePort
+  selector: # service のselctorは、matchLabels 扱いになる
+    app: backend # 転送先の Pod のラベル
+  ports:
+    - protocol: TCP
+      port: 5000 # ServiceのIPでlistenするポート
+      targetPort: 5000 # コンテナでlistenしているPort番号のポート

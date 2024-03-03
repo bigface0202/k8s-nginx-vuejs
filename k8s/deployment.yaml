@@ -28,8 +28,38 @@ spec:
           #   periodSeconds: 5
           resources:
             requests:
-              memory: "512Mi"
-              cpu: "250m"
+              memory: 512Mi
+              cpu: 250m
             limits:
-              memory: "1Gi"
-              cpu: "500m"
+              memory: 1Gi
+              cpu: 500m
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: app
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  replicas: 1
+  template:
+    metadata:
+        name: backend
+        namespace: app
+        labels:
+          app: backend
+    spec:
+      containers:
+        - name: backend
+          image: asia-northeast1-docker.pkg.dev/ksst-project-one/my-repository/python-api:latest
+          ports:
+          - containerPort: 5000
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 100m
+            limits:
+              memory: 512Mi
+              cpu: 200m

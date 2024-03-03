@@ -2,7 +2,7 @@
 # Building Vue.js
 FROM node:17-alpine3.14 as vue-build
 
-COPY vue /app
+COPY ./vue /app
 WORKDIR /app
 RUN npm install
 
@@ -14,7 +14,7 @@ FROM nginx:alpine
 ENV APP_HOME /app
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 WORKDIR $APP_HOME
-COPY --from=vue-build /app/dist /var/www
+COPY --from=vue-build /app/dist /var/www/frontend
 
 # Execute web server by nginx
 WORKDIR /usr/share/nginx/html

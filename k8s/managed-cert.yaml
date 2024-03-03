@@ -5,4 +5,4 @@ metadata:
   name: app-managed-cirt
 spec:
   domains:
-    - 34.128.162.23.nip.io
+    - 34.36.170.219.nip.io
