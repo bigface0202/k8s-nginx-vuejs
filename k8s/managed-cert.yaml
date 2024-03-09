@@ -2,7 +2,7 @@ apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
   namespace: app
-  name: app-managed-cirt
+  name: app-managed-cert
 spec:
   domains:
-    - 34.36.170.219.nip.io
+    - xx.xx.xx.xx.nip.io # Please specify load balancer's external IP address.

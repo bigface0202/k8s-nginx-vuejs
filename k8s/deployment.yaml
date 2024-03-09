@@ -17,15 +17,9 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: asia-northeast1-docker.pkg.dev/ksst-project-one/my-repository/vue-app:latest
+          image: asia-northeast1-docker.pkg.dev/<YOUR_PROJECT>/my-repository/vue-app:latest
           ports:
           - containerPort: 3001
-          # livenessProbe:
-          #   httpGet:
-          #     port: 3001
-          #     path: /
-          #   failureThreshold: 5
-          #   periodSeconds: 5
           resources:
             requests:
               memory: 512Mi
@@ -53,7 +47,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: asia-northeast1-docker.pkg.dev/ksst-project-one/my-repository/python-api:latest
+          image: asia-northeast1-docker.pkg.dev/<YOUR_PROJECT>/my-repository/python-api:latest
           ports:
           - containerPort: 5000
           resources:

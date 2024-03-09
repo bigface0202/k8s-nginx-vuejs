@@ -1,7 +1,7 @@
 <template>
   <div>
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="このポートフォリオはおうちK8Sで運営されています。"/>
+    <HelloWorld msg="This is GKE hands-on."/>
   </div>
 </template>
 
