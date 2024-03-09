@@ -10,6 +10,7 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: "app-lb" # Loadbalancer's IP address name in Google Cloud IP Address.
     kubernetes.io/ingress.allow-http: "false" # Only allow HTTPS connection between client and load balancer.
     networking.gke.io/managed-certificates: "app-managed-cert" # Apply ManagedCertificate to establish HTTPS connection.
+spec: 
   rules:
   - http:
       paths:
